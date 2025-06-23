@@ -172,5 +172,3 @@ Week 2:
 1. A wireframe/mockup of the UI to visualize components?
 
 2. Starter boilerplate code for the project structure?
-
-3. To dive straight into planning out the main components and their props/state?
