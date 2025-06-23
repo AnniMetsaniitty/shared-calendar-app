@@ -1,3 +1,4 @@
+import { CalendarProvider } from "./context/CalendarContext";
 import UserSelector from "./components/UserSelector";
 import Navigation from "./components/Navigation";
 import CalendarView from "./components/CalendarView";
@@ -6,14 +7,17 @@ import EventForm from "./components/EventForm";
 
 function App() {
   console.log('App rendering...');
+
   return (
-    <div style={{ maxWidth: 700, margin: "0 auto", padding: 16 }}>
-      <UserSelector />
-      <Navigation />
-      <CalendarView />
-      <EventList />
-      <EventForm />
-    </div>
+    <CalendarProvider>
+      <div style={{ maxWidth: 700, margin: "0 auto", padding: 16 }}>
+        <UserSelector />
+        <Navigation />
+        <CalendarView />
+        <EventList />
+        <EventForm />
+      </div>
+    </CalendarProvider>
   );
 }
 
