@@ -1,5 +1,10 @@
 function CalendarView() {
-    return <div>CAlendar grid goes here</div>;
+  return (
+    <div>
+      <h3>Calendar View</h3>
+      <p>Calendar component placeholder</p>
+    </div>
+  );
 }
 
 export default CalendarView;

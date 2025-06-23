@@ -1,5 +1,10 @@
 function UserSelector() {
-    return <div>UserSelector placeholder</div>;
+  return (
+    <div>
+      <h3>User Selector</h3>
+      <p>Select user component placeholder</p>
+    </div>
+  );
 }
 
-export default UserSelector
+export default UserSelector;
