@@ -10,7 +10,7 @@ function UserSelector() {
     <div className="user-selector">
       <h3>User Selector</h3>
        <label className="user-select-label">
-        Choose user:{" "}
+        Choose User:{" "}
         <select
           className="user-select"
           value={currentUser || users[0]}
@@ -21,7 +21,7 @@ function UserSelector() {
           ))}
         </select>
       </label>
-      <p>Current user: <strong>{currentUser}</strong></p>
+      <p>Current User: <strong>{currentUser}</strong></p>
     </div>
   );
 }
