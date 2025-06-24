@@ -7,11 +7,12 @@ function UserSelector() {
   const users = ["Anni","Viktor", "Leona"];
 
   return (
-    <div>
+    <div className="user-selector">
       <h3>User Selector</h3>
-      <label>
+       <label className="user-select-label">
         Choose user:{" "}
         <select
+          className="user-select"
           value={currentUser || users[0]}
           onChange={e => setCurrentUser(e.target.value)}
         >
