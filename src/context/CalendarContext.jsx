@@ -12,16 +12,23 @@ export function useCalendarContext() {
 export function CalendarProvider({ children }) {
   // Shared state
   const [events, setEvents] = useState([]);
-  const [currentUser, setCurrentUser] = useState("Anna"); // default user
+  const [currentUser, setCurrentUser] = useState(null); // default user
 
-  // Add more shared state as we're building
+  // 👉 ADD these for calendar logic:
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const todayString = new Date().toISOString().slice(0, 10);
+  const [selectedDay, setSelectedDay] = useState(todayString); // default: today
 
-  // Context value
+  // Context value (export everything that components need)
   const value = {
     events,
     setEvents,
     currentUser,
     setCurrentUser,
+    currentMonth,
+    setCurrentMonth,
+    selectedDay,
+    setSelectedDay,
     // Add more if needed
   };
 
@@ -31,3 +38,4 @@ export function CalendarProvider({ children }) {
     </CalendarContext.Provider>
   );
 }
+
