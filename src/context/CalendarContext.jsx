@@ -12,7 +12,7 @@ export function useCalendarContext() {
 export function CalendarProvider({ children }) {
   // Shared state
   const [events, setEvents] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null); // default user
+  const [currentUser, setCurrentUser] = useState("Anni"); // default user
 
   // 👉 ADD these for calendar logic:
   const [currentMonth, setCurrentMonth] = useState(new Date());

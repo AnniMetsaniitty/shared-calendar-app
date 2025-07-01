@@ -3,7 +3,7 @@ import { useCalendarContext } from '../context/CalendarContext';
 function EventList() {
   const { events, currentUser } = useCalendarContext();
   
-  const userEvents = events.filter(event => event.userId === currentUser);
+  const userEvents = events.filter(event => event.user === currentUser);
   
   return (
     <div>

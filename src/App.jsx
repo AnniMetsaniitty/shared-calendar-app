@@ -6,7 +6,6 @@ import EventList from "./components/EventList";
 import EventForm from "./components/EventForm";
 
 function App() {
-  console.log('App rendering...');
 
   return (
     <CalendarProvider>
