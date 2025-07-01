@@ -22,6 +22,15 @@ function EventForm({ onClose, date, event }) {
     }
   }, [event]);
 
+    if (!currentUser) {
+    return (
+      <div className="event-form-panel">
+        <p style={{ color: "#d32f2f" }}>Please select a user before adding events.</p>
+        <button onClick={onClose} className="add-event-btn">Close</button>
+      </div>
+    );
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 

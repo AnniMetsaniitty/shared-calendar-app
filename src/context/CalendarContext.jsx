@@ -13,7 +13,7 @@ export function useCalendarContext() {
 export function CalendarProvider({ children }) {
   // Shared state
   const [events, setEvents] = useState([]);
-  const [currentUser, setCurrentUser] = useState("Anni"); // default user
+  const [currentUser, setCurrentUser] = useState(""); // default user
 
   // For calendar logic:
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -21,18 +21,16 @@ export function CalendarProvider({ children }) {
   const [selectedDay, setSelectedDay] = useState(todayString); // default: today
 
   // Load data from localStorage when app starts
-  useEffect(() => {
-    const savedEvents = localStorage.getItem("events");
-    if (savedEvents) setEvents(JSON.parse(savedEvents));
+useEffect(() => {
+  const savedEvents = localStorage.getItem("events");
+  if (savedEvents) setEvents(JSON.parse(savedEvents));
 
-    const savedUser = localStorage.getItem("currentUser");
-    if (savedUser) setCurrentUser(savedUser);
-  }, []);
+    setCurrentUser(""); // forces placeholder on every load
+}, []);
 
   // Save data to localStorage when events or user changes
   useEffect(() => {
     localStorage.setItem("events", JSON.stringify(events));
-    localStorage.setItem("currentUser", currentUser);
   }, [events, currentUser]);
 
 
