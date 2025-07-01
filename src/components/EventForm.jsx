@@ -1,39 +1,61 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCalendarContext } from "../context/CalendarContext";
 
-function EventForm({ onClose, date }) {
+function EventForm({ onClose, date, event }) {
   const { setEvents, events, currentUser } = useCalendarContext();
 
-  // State for each field
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [time, setTime] = useState("");
+  // If editing, prefill fields. Otherwise, empty.
+  const [title, setTitle] = useState(event ? event.title : "");
+  const [description, setDescription] = useState(event ? event.description : "");
+  const [time, setTime] = useState(event ? event.time : "");
+
+  // Update form if "event" changes (important for editing multiple times)
+  useEffect(() => {
+    if (event) {
+      setTitle(event.title);
+      setDescription(event.description);
+      setTime(event.time || "");
+    } else {
+      setTitle("");
+      setDescription("");
+      setTime("");
+    }
+  }, [event]);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    // Simple validation
     if (!title) return alert("Title is required!");
 
-    // Create event object
-    const newEvent = {
-      id: crypto.randomUUID(),
-      user: currentUser,
-      title,
-      description,
-      date, // comes from props (selected day)
-      time
-    };
-
-    // Add to events
-    setEvents([...events, newEvent]);
-    onClose(); // Close form
+    if (event) {
+      // Edit existing
+      const updatedEvent = {
+        ...event,
+        title,
+        description,
+        time,
+        // user, date, id unchanged
+      };
+      setEvents(events.map(ev => ev.id === event.id ? updatedEvent : ev));
+    } else {
+      // Add new
+      const newEvent = {
+        id: crypto.randomUUID(),
+        user: currentUser,
+        title,
+        description,
+        date,
+        time,
+      };
+      setEvents([...events, newEvent]);
+    }
+    onClose();
   }
 
   return (
     <div className="event-form-modal">
       <div className="event-form-panel">
-        <h3>Add Event for {date}</h3>
+        <h3>{event ? "Edit Event" : `Add Event for ${date}`}</h3>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -58,9 +80,14 @@ function EventForm({ onClose, date }) {
           />
           <div style={{ marginTop: 12 }}>
             <button type="submit" className="add-event-btn">
-              Add Event
+              {event ? "Save Changes" : "Add Event"}
             </button>
-            <button type="button" onClick={onClose} className="add-event-btn" style={{ background: "#eee", color: "#444", marginLeft: 10 }}>
+            <button
+              type="button"
+              onClick={onClose}
+              className="add-event-btn"
+              style={{ background: "#eee", color: "#444", marginLeft: 10 }}
+            >
               Cancel
             </button>
           </div>
