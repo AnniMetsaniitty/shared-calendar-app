@@ -227,3 +227,48 @@ body {
     font-size: 15px;
   }
 }
+
+/* Modal overlay for event form */
+.event-form-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.17);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form panel styles */
+.event-form-panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px 20px 18px 20px;
+  min-width: 310px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+  border: 1px solid #eee;
+}
+
+.event-input {
+  width: 100%;
+  padding: 7px 10px;
+  margin: 7px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.event-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.event-form-panel h3 {
+  margin-top: 0;
+  color: #007bff;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
