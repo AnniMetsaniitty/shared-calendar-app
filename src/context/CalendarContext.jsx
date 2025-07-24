@@ -17,8 +17,7 @@ export function CalendarProvider({ children }) {
 
   // For calendar logic:
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const todayString = new Date().toISOString().slice(0, 10);
-  const [selectedDay, setSelectedDay] = useState(todayString); // default: today
+  const [selectedDay, setSelectedDay] = useState(null); // default: today
 
   // Load data from localStorage when app starts
 useEffect(() => {

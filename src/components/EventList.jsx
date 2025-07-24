@@ -7,6 +7,14 @@ function EventList() {
   const [showForm, setShowForm] = useState(false);
   const [editEvent, setEditEvent] = useState(null); // Track which event to edit
 
+  if (!selectedDay) {
+    return (
+      <div className="event-list-container">
+        <p>Please select a day</p>
+      </div>
+    );
+  }
+  
   const dayEvents = events.filter(event => event.date === selectedDay);
 
   function handleEdit(event) {
