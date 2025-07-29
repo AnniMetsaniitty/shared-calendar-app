@@ -1,5 +1,7 @@
 ## 🎯 **Shared Calendar App: Feature Ideas**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-online-brightgreen?style=for-the-badge)](https://famous-paprenjak-26fef4.netlify.app/)
+
 ### **Core Features**
 
 1. **User Accounts (Optional)**
