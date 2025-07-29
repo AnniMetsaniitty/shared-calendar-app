@@ -1,183 +1,86 @@
 # 📅 Shared Calendar App
 
+A modern, easy-to-use calendar application built with **React** and **Vite**.  
+Add, edit, and view events in a shared calendar—great for learning React concepts like Context, custom hooks, and localStorage persistence.
+
+---
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-online-red?style=for-the-badge)](https://famous-paprenjak-26fef4.netlify.app/)
 
-A modern, easy-to-use calendar application built with **React** and **Vite**.  
+---
 
-### **Core Features**
+## ✨ Features
 
-1. **User Accounts (Optional)**
-    
-    - For a basic version, you can skip real authentication and let people “pick a username” to see how shared events would look.
-        
-2. **Monthly/Weekly Calendar View**
-    
-    - Grid display of days.
-        
-    - Click a day to see details/add events.
-        
-3. **Add/Edit/Delete Events**
-    
-    - Simple event form: title, description, time, color/label.
-        
-    - Edit or delete your events.
-        
-4. **Event List for a Day**
-    
-    - Clicking a day shows all events for that day.
-        
-5. **Shared View**
-    
-    - See all users’ events, maybe color-coded by user.
-        
-6. **Highlight Today**
-    
-    - Visually indicate the current day.
-        
-7. **Navigation**
-    
-    - Buttons to go to previous/next month/week.
-        
-
-### **Nice-to-Have Features**
-
-- **Event Search or Filter**
-    
-    - Search events by keyword, or filter by user.
-        
-- **Recurring Events**
-    
-    - E.g., every Monday.
-        
-- **Event Reminders**
-    
-    - (Local notification or just a pop-up).
-        
-- **Responsive Design**
-    
-    - Looks good on mobile and desktop.
-        
-- **Dark/Light Mode**
-    
-- **Export Calendar to CSV/ICS**
-    
-    - Download your events.
-        
-
-### **For Showcasing React**
-
-- Use **React Context** for shared state (e.g., user, events).
-    
-- **Custom Hooks** (e.g., useCalendar).
-    
-- **Component Reusability** (EventCard, DayCell, etc.).
-    
-- Use **localStorage** for persistence (since you likely don’t want to build a backend).
-    
+- **Monthly Calendar View** with interactive day selection
+- **Add, Edit, and Delete Events** with title, description, and time
+- **Multiple Users** (simulated; pick a user to see their events)
+- **Color Highlights** for today and selected days
+- **Data Persistence** using browser localStorage (no backend needed)
+- **Responsive Design** for desktop and mobile
+- Built with **React Context** and **Custom Hooks** for state and logic
 
 ---
 
-## 🛠️ **Sample User Flows**
+## 🚀 How to Run the Application
 
-- User opens the app, sees a calendar.
-    
-- User clicks a day, adds an event.
-    
-- User sees all events for the day in a list.
-    
-- User can edit/delete an event.
-    
-- (Optional) User “switches” to another name and sees other users’ events too.
-    
+### **1. Clone the Repository**
 
----
+```sh
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+```
 
-## 📝 **Detailed Plan**
+### **2. Install Dependencies**
 
-### **1. Requirements and Scope**
+You need [Node.js](https://nodejs.org/) installed (version 16 or higher recommended).
 
-- **Timeframe:** 2 weeks
-    
-- **Backend:** None (localStorage for data)
-    
-- **Users:** Simulated (no real auth)
-    
-- **Core Features:** Calendar grid, add/edit/delete events, shared view
-    
+```sh
+npm install
+```
 
-### **2. Main Components**
+### **3. Start the Development Server**
 
-1. **App**
-    
-2. **CalendarView** (grid of days)
-    
-3. **DayCell** (individual day in the calendar)
-    
-4. **EventList** (shows events for a selected day)
-    
-5. **EventForm** (add/edit event)
-    
-6. **Navigation** (month/week navigation)
-    
-7. **UserSelector** (pick current user)
-    
+```sh
+npm run dev
+```
 
-### **3. App Structure Example**
-
-plaintext
-
-CopyEdit
-
-`App  ├── UserSelector  ├── Navigation  ├── CalendarView  │     └── DayCell (x 35-42)  ├── EventList (for selected day)  └── EventForm (modal or side panel)`
-
-### **4. Data Models**
-
-js
-
-CopyEdit
-
-`// Example event {   id: "uuid",   user: "Anna",   title: "React Course",   description: "Project planning session",   date: "2025-06-19",   time: "14:00",   color: "#FF5733" }  // User "Anna" // simple string, for now`
-
-### **5. LocalStorage Keys**
-
-- `events`: array of all events
-    
-- `currentUser`: selected user
-    
-
-### **6. Must-Have Pages/Views**
-
-- **Calendar View** (default)
-    
-- **Day Details** (events list + add event)
-    
+The app will print a local address (usually `http://localhost:5173`).
+Open this in your browser to use the Shared Calendar!
 
 ---
 
-## 📅 **Sample 2-Week Timeline**
+## 📝 To do
 
-**Week 1:**
+- Add SQL database integration for persistent storage
+- Replace localStorage with backend API for events
 
-- Project setup with Vite
-    
-- Build basic calendar grid (CalendarView, DayCell)
-    
-- Implement navigation (month change)
-    
-- Add EventList & EventForm components
-    
-- Implement add/edit/delete events (in state)
-    
+---
 
-**Week 2:**
+## ⚡ Usage Tips
 
-- Save/load events from localStorage
-    
-- Add UserSelector and shared view logic
-    
-- Polish UI (highlight today, event colors)
-    
-- Responsive styling
-    
-- Prepare presentation, write README
+- **Choose a User:** Select a user from the dropdown to create/view events as that user.
+- **Export Events:** Use the Export buttons to download your events or all events as CSV/JSON.
+- **No login required!** All event data is saved in your browser’s localStorage.
+- To reset the calendar, clear your browser’s local storage for this site. This means that, **all of your data will be lost when resetting the calendar.** Update coming soon...
+
+---
+
+## 🛠️ Tech Stack
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Google Fonts: Roboto](https://fonts.google.com/specimen/Roboto)
+
+---
+
+## 🎓 Learning Goals
+
+This project demonstrates:
+
+- Component-driven UI design in React
+- Using **React Context** for global state (users, events)
+- Writing **Custom Hooks** for reusable calendar logic
+
+---
