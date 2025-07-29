@@ -5,7 +5,7 @@ Add, edit, and view events in a shared calendar—great for learning React conce
 
 ---
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-online-red?style=for-the-badge)](https://famous-paprenjak-26fef4.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-online-red?style=for-the-badge)](https://react-shared-calendar.netlify.app/)
 
 ---
 
