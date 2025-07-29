@@ -1,6 +1,8 @@
-## 🎯 **Shared Calendar App: Feature Ideas**
+# 📅 Shared Calendar App
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-online-brightgreen?style=for-the-badge)](https://famous-paprenjak-26fef4.netlify.app/)
+
+A modern, easy-to-use calendar application built with **React** and **Vite**.  
 
 ### **Core Features**
 
