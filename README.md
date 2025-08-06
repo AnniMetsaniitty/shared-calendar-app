@@ -53,6 +53,7 @@ Open this in your browser to use the Shared Calendar!
 
 - Add SQL database integration for persistent storage
 - Replace localStorage with backend API for events
+- Replace the simulated user selector with real user authentication using Firebase Auth
 
 ---
 
