@@ -1,87 +1,69 @@
-# 📅 Shared Calendar App
+# Shared Calendar App
 
-A modern, easy-to-use calendar application built with **React** and **Vite**.  
-Add, edit, and view events in a shared calendar—great for learning React concepts like Context, custom hooks, and localStorage persistence.
+A small shared calendar app built with React and Vite. It provides a month view, simulated user switching, and local browser persistence for calendar events.
 
----
+## Current Features
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-online-red?style=for-the-badge)](https://react-shared-calendar.netlify.app/)
+- Monthly calendar grid with previous/next month navigation
+- Day selection and per-day event list
+- Add, edit, and delete events with title, description, and time
+- Simulated shared usage with a fixed list of users
+- Visual highlighting for today, the selected day, and days with events
+- Local persistence with `localStorage` for events and the selected user
+- Responsive single-page layout
 
----
+## Current Scope
 
-## ✨ Features
+- Frontend-only application
+- No authentication
+- No backend API or database
+- No event export or import
 
-- **Monthly Calendar View** with interactive day selection
-- **Add, Edit, and Delete Events** with title, description, and time
-- **Multiple Users** (simulated; pick a user to see their events)
-- **Color Highlights** for today and selected days
-- **Data Persistence** using browser localStorage (no backend needed)
-- **Responsive Design** for desktop and mobile
-- Built with **React Context** and **Custom Hooks** for state and logic
+## Running Locally
 
----
+Requirements:
 
-## 🚀 How to Run the Application
+- Node.js 18+ recommended
 
-### **1. Clone the Repository**
-
-```sh
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-```
-
-### **2. Install Dependencies**
-
-You need [Node.js](https://nodejs.org/) installed (version 16 or higher recommended).
+Install dependencies:
 
 ```sh
 npm install
 ```
 
-### **3. Start the Development Server**
+Start the development server:
 
 ```sh
 npm run dev
 ```
 
-The app will print a local address (usually `http://localhost:5173`).
-Open this in your browser to use the Shared Calendar!
+Create a production build:
 
----
+```sh
+npm run build
+```
 
-## 📝 To do
+## Usage Notes
 
-- Add SQL database integration for persistent storage
-- Replace localStorage with backend API for events
-- Replace the simulated user selector with real user authentication using Firebase Auth
+- Pick one of the built-in users from the selector before creating events.
+- Events are stored in this browser only.
+- The selected user is also saved in this browser.
+- To reset the app state, clear this site's local storage in the browser.
 
----
+## Project Structure
 
-## ⚡ Usage Tips
+- `src/components`: UI components for the calendar, navigation, user selection, and event workflows
+- `src/context`: shared application state for events, current user, month, and selected day
+- `src/hooks`: calendar grid/date logic
+- `src/styles`: application styles
 
-- **Choose a User:** Select a user from the dropdown to create/view events as that user.
-- **Export Events:** Use the Export buttons to download your events or all events as CSV/JSON.
-- **No login required!** All event data is saved in your browser’s localStorage.
-- To reset the calendar, clear your browser’s local storage for this site. This means that, **all of your data will be lost when resetting the calendar.** Update coming soon...
+## Tech Stack
 
----
+- React 19
+- Vite 6
+- JavaScript (ES modules)
+- CSS
 
-## 🛠️ Tech Stack
+## Notes
 
-- [React](https://reactjs.org/)
-- [Vite](https://vitejs.dev/)
-- [JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [Google Fonts: Roboto](https://fonts.google.com/specimen/Roboto)
-
----
-
-## 🎓 Learning Goals
-
-This project demonstrates:
-
-- Component-driven UI design in React
-- Using **React Context** for global state (users, events)
-- Writing **Custom Hooks** for reusable calendar logic
-
----
+This project is currently aligned to a local-only demo scope. Any future backend, authentication, or export work would be new functionality rather than part of the current implementation.

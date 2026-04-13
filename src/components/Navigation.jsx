@@ -12,7 +12,7 @@ function Navigation() {
   }
 
   return (
-    <div>
+    <div className="navigation-bar">
       <button onClick={goToPreviousMonth}>Prev</button>
       <span>{currentMonth.toLocaleString("default", { month: "long", year: "numeric" })}</span>
       <button onClick={goToNextMonth}>Next</button>

@@ -9,6 +9,10 @@ export function useCalendarContext() {
   return useContext(CalendarContext);
 }
 
+function getTodayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
 // Provider component
 export function CalendarProvider({ children }) {
   // Shared state
@@ -17,20 +21,30 @@ export function CalendarProvider({ children }) {
 
   // For calendar logic:
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDay, setSelectedDay] = useState(null); // default: today
+  const [selectedDay, setSelectedDay] = useState(getTodayKey());
 
   // Load data from localStorage when app starts
-useEffect(() => {
-  const savedEvents = localStorage.getItem("events");
-  if (savedEvents) setEvents(JSON.parse(savedEvents));
+  useEffect(() => {
+    const savedEvents = localStorage.getItem("events");
+    const savedCurrentUser = localStorage.getItem("currentUser");
 
-    setCurrentUser(""); // forces placeholder on every load
-}, []);
+    if (savedEvents) {
+      setEvents(JSON.parse(savedEvents));
+    }
 
-  // Save data to localStorage when events or user changes
+    if (savedCurrentUser) {
+      setCurrentUser(savedCurrentUser);
+    }
+  }, []);
+
+  // Save data to localStorage when shared state changes
   useEffect(() => {
     localStorage.setItem("events", JSON.stringify(events));
-  }, [events, currentUser]);
+  }, [events]);
+
+  useEffect(() => {
+    localStorage.setItem("currentUser", currentUser);
+  }, [currentUser]);
 
 
   // Context value (export everything that components need)
@@ -52,4 +66,3 @@ useEffect(() => {
     </CalendarContext.Provider>
   );
 }
-
